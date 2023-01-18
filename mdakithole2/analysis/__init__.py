@@ -21,7 +21,7 @@
 # J. Comput. Chem. 32 (2011), 2319--2327, doi:10.1002/jcc.21787
 #
 
-"""HOLE Analysis --- :mod:`MDAnalysis.analysis.hole2`
+"""HOLE Analysis --- :mod:`mdakithole2.analysis.hole`
 =====================================================================================
 
 :Author: Lily Wang
@@ -40,8 +40,8 @@ Using HOLE on a PDB file
 Use the :func:``hole`` function to run `HOLE`_ on a single PDB file. For example,
 the code below runs the `HOLE`_ program installed at '~/hole2/exe/hole' ::
 
-    from MDAnalysis.tests.datafiles import PDB_HOLE
-    from MDAnalysis.analysis import hole2
+    from mdakithole2.tests.datafiles import PDB_HOLE
+    from mdakithole2.analysis import hole
     profiles = hole2.hole(PDB_HOLE, executable='~/hole2/exe/hole')
     # to create a VMD surface of the pore
     hole2.create_vmd_surface(filename='hole.vmd')
@@ -82,12 +82,12 @@ the :meth:`~HoleAnalysis.run` function.
 The class can be set-up and run like a normal MDAnalysis analysis class::
 
     import MDAnalysis as mda
-    from MDAnalysis.tests.datafiles import MULTIPDB_HOLE
-    from MDAnalysis.analysis import hole2
+    from mdakithole2.tests.datafiles import MULTIPDB_HOLE
+    from mdakithole2.analysis import hole
 
     u = mda.Universe(MULTIPDB_HOLE)
 
-    ha = hole2.HoleAnalysis(u, executable='~/hole2/exe/hole') as h2:
+    ha = hole.HoleAnalysis(u, executable='~/hole2/exe/hole') as h2:
     ha.run()
     ha.create_vmd_surface(filename='hole.vmd')
 
@@ -108,7 +108,7 @@ call :meth:`~HoleAnalysis.delete_temporary_files`::
 Alternatively, you can use HoleAnalysis as a context manager that deletes
 temporary files when you are finished with the context manager::
 
-    with hole2.HoleAnalysis(u, executable='~/hole2/exe/hole') as h2:
+    with hole.HoleAnalysis(u, executable='~/hole2/exe/hole') as h2:
         h2.run()
         h2.create_vmd_surface()
 
@@ -132,10 +132,10 @@ To analyze a full trajectory and write pore surfaces for all frames to file
 :file:`hole_surface.vmd`, use ::
 
     import MDAnalysis as mda
-    from MDAnalysis.analysis import hole2
+    from mdakithole2.analysis import hole
 
     # load example trajectory MULTIPDB_HOLE
-    from MDAnalysis.tests.datafiles import MULTIPDB_HOLE
+    from mdakithole2.tests.datafiles import MULTIPDB_HOLE
 
     u = mda.Universe(MULTIPDB_HOLE)
 
@@ -280,9 +280,9 @@ Functions and classes
 
 .. [#create_vmd_surface_function] If you use the :class:`hole` class to run
               :program:`hole` on a single PDB file then you can use
-              :func:`MDAnalysis.analysis.hole2.utils.create_vmd_surface`
+              :func:`mdakithole2.analysis.utils.create_vmd_surface`
               function to manually run :program:`sph_process` and
-              :program:`sos_triangle` on the output files andcr eate a surface
+              :program:`sos_triangle` on the output files and create a surface
               file.
 
 .. [#vmd_extra_frame] If you loaded your system in VMD_ from separate topology

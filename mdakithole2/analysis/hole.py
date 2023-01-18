@@ -284,7 +284,7 @@ class HoleAnalysis(AnalysisBase):
     context manager, the class will try to delete any temporary files created
     by HOLE, e.g. sphpdb files and logfiles. ::
 
-        with hole2.HoleAnalysis(u, executable='~/hole2/exe/hole') as h2:
+        with hole.HoleAnalysis(u, executable='~/hole2/exe/hole') as h2:
             h2.run()
             h2.create_vmd_surface()
 

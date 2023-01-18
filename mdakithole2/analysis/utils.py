@@ -23,7 +23,7 @@
 
 
 """
-HOLE Analysis --- :mod:`MDAnalysis.analysis.hole2.helper`
+HOLE Analysis --- :mod:`mdakithole2.analysis.utils`
 =========================================================
 
 :Author: Lily Wang
@@ -32,7 +32,7 @@ HOLE Analysis --- :mod:`MDAnalysis.analysis.hole2.helper`
 
 .. versionadded:: 1.0
 
-Helper functions used in :mod:`MDAnalysis.analysis.hole2.hole`
+Helper functions used in :mod:`mdakithole2.analysis.hole`
 """
 import logging
 import tempfile
@@ -41,10 +41,8 @@ import os
 import numpy as np
 import errno
 
-# from ...lib import util
 from MDAnalysis.lib import util
 from MDAnalysis.exceptions import ApplicationError
-# from ...exceptions import ApplicationError
 from .templates import (SIMPLE2_RAD, IGNORE_RESIDUES, hole_input,
                         hole_lines, exe_err)
 
